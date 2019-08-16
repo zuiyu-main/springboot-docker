@@ -31,6 +31,24 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- 数据库驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- springdata jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -46,7 +64,7 @@
                 <version>0.4.13</version>
                 <configuration>
 <!--                    镜像名称-->
-                    <imageName>${docker.image.prefix}/docker-demo:latest</imageName>
+                    <imageName>${docker.image.prefix}-docker-demo:0.0.1</imageName>
 <!--                    dockerfile地址 -->
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <resources>

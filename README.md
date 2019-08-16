@@ -33,3 +33,14 @@ springboot集成maven-docker插件，自动构建镜像
  ENTRYPOINT ["java","-jar","/app.jar"]`
  # 构建
  `mvn clean package docker:build`
+ #连接mysql容器
+ `spring:
+    datasource:
+        # tz_mysql 是我的mysql容器名称
+      url: jdbc:mysql://tz_mysql:3306/mystudy 
+      driver-class-name:  com.mysql.cj.jdbc.Driver
+      username: root
+      password: root`
+ #运行容器
+ `docker run --rm -p 8081:8081 --name demo  --link tz_mysql:tz_mysql tz-docker-demo:0.0.1`
+ --link 连接的容器名：别名（和上方配置mysql的地方一致）
