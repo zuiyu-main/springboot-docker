@@ -1,0 +1,6 @@
+FROM frolvlad/alpine-oraclejdk8:slim
+VOLUME /tmp
+ADD tz-docker-demo.jar app.jar
+ADD agent agent
+EXPOSE 8081
+ENTRYPOINT ["java","-javaagent:/agent/skywalking-agent.jar","-DSW_AGENT_NAME=\"springboot-docker\"","-DSW_AGENT_NAMESPACE=\"demo\"","-jar","/app.jar"]
